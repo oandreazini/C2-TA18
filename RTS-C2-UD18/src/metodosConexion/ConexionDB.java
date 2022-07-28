@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class ConexionDB {
 	
-	private String pass = "SONYvaio5.";
+	private String pass = ".";
 	private String user = "root";
 	private Connection c;
 	
