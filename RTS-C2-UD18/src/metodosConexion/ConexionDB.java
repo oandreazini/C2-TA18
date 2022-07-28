@@ -3,12 +3,15 @@ package metodosConexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConexionDB {
 	
-	Connection c;
+	private Connection c;
 	
-	public void abrirConexion() {
+	public void openConnection() {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +28,7 @@ public class ConexionDB {
 
 	
 	
-	public void cerrarConexion() {
+	public void closeConnection() {
 		
 			try {
 				c.close();
@@ -36,6 +39,20 @@ public class ConexionDB {
 				System.out.println("No se ha podido cerrar la conexión con mi base de datos");
 				System.out.println(e);
 			}
+	}
+	
+	
+	public void createDB(String name) {
+		try {
+			String Query = "CREATE DATABASE " + name;
+			Statement st = c.createStatement();
+			st.executeUpdate(Query);
+			closeConnection();
+			//MySQLConnection("root", "", name);
+			System.out.println("Se ha creado la base de datos " + name + " de forma exitosa.");
+		} catch (SQLException ex) {
+			Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 	
 	
