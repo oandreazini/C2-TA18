@@ -2,6 +2,7 @@ package metodosConexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -14,12 +15,18 @@ public class ConexionDB {
 	
 	public ConexionDB() {
 	}
+	
+	public ConexionDB(String db) {
+		openConnection();
+		
+		createDB(db);
+	}
 
 	public void openConnection() {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.55:3306","root","PASSWORD");
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.55:3306","root","pass");
 			
 			System.out.println("Server Connected");
 			
@@ -101,5 +108,38 @@ public class ConexionDB {
 			System.out.println(e.getMessage());
 			System.out.println("Error en el almacenamiento");
 		}
+	}
+
+	public ResultSet getValues(String db, String table_name) {
+		try {
+			String Querydb = "USE "+db+",";
+			Statement stdb = c.createStatement();
+			stdb.executeUpdate(Querydb);
+
+			String Query = "SELECT * FROM " + table_name + ";";
+			
+			Statement st = c.createStatement();
+			java.sql.ResultSet resultSet;
+			resultSet = st.executeQuery(Query);
+			
+			return resultSet;
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage()); System.out.println("Error en la adquisicion de datos");
+		}
+		return null;
+	}
+	
+	public void deleteRecord(String table_name, String field, String ID) {
+		
+		try {
+			String Query = "DELETE FROM " + table_name + " WHERE " + field + " = \"" + ID + "\"";
+			Statement st = c.createStatement();
+			st.executeUpdate(Query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
