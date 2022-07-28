@@ -5,7 +5,6 @@ import java.util.Scanner;
 import metodosConexion.ConexionDB;
 
 public class Peliculas {
-
 	
 	private ConexionDB conexion;
 	
