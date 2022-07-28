@@ -28,7 +28,7 @@ public class ConexionDB {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306",user,pass);
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.91:3306",user,pass);
 			
 			System.out.println("Server Connected");
 			
@@ -42,7 +42,7 @@ public class ConexionDB {
 	public void MySQLConnection(String db) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306/" + db , user, pass);
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.91:3306/" + db , user, pass);
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("No se ha podido conectar con mi base de datos");
@@ -118,7 +118,7 @@ public class ConexionDB {
 
 	public ResultSet getValues(String db, String table_name) {
 		try {
-			String Querydb = "USE "+db+",";
+			String Querydb = "USE " + db + ";";
 			Statement stdb = c.createStatement();
 			stdb.executeUpdate(Querydb);
 

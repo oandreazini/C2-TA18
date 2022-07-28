@@ -28,10 +28,10 @@ public class MainApp {
 	
 	public static void createInserts (Fabricantes f, Articulos a) {
 		
-		for(int i=0; i<5; i++) {
+		for(int i=0; i<1; i++) {
 			f.insert("Ex1");
 		}
-		for(int i=0; i<5; i++) {
+		for(int i=0; i<1; i++) {
 			a.insert("Ex1");
 		}
 	}

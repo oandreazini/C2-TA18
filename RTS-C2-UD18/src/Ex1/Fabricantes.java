@@ -2,9 +2,7 @@ package Ex1;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
 import metodosConexion.ConexionDB;
 
 public class Fabricantes {
@@ -12,11 +10,7 @@ public class Fabricantes {
 	private ConexionDB conexion = new ConexionDB();
 	
 	public void insert(String db) {
-		//Scanner sc = new Scanner(System.in);
-		
-		//System.out.println("Introduce un nombre: ");
 		String name = JOptionPane.showInputDialog("Introduce el nombre");
-	//	sc.close();
 		name = "'"+name+"'";
 		
 		conexion.MySQLConnection(db);
