@@ -37,8 +37,8 @@ public class MainApp {
 
 	public static void printValues(Empleados e, Departamentos d) {
 
-		e.select("Ex1");
-		d.select("Ex1");
+		e.select("Ex2");
+		d.select("Ex2");
 	}
 
 	public static void deleteData(Empleados e, Departamentos d) {
