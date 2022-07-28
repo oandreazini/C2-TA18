@@ -3,26 +3,30 @@ package Ex1;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import metodosConexion.ConexionDB;
 
 public class Articulos {
 	
 		
-		private ConexionDB conexion;
+		private ConexionDB conexion = new ConexionDB();
 		
 		public void insert(String db) {
 			Scanner sc = new Scanner(System.in);
 			
-			System.out.println("Introduce un nombre del articulo: ");
-			String name = sc.next();
+			//System.out.println("Introduce un nombre del articulo: ");
+			String name = JOptionPane.showInputDialog("Introduce un NOMBRE del articulo:");
+			name = "'"+name+"'";
+			//System.out.println("Introduce un precio del articulo: ");
+			String price = JOptionPane.showInputDialog("Introduce un PRECIO del articulo:");
 			
-			System.out.println("Introduce un precio del articulo: ");
-			String price = sc.next();
+			//System.out.println("Introduce un fabricante del articulo: ");
+			String maker = JOptionPane.showInputDialog("Introduce un FABRICANTE del articulo:");
+			//sc.close();
 			
-			System.out.println("Introduce un fabricante del articulo: ");
-			String maker = sc.next();
-			sc.close();
 			
+			conexion.MySQLConnection(db);
 			conexion.insertData(db, "Articulos", "Nombre, Precio, Fabricante", name +", " + price + ", " + maker);
 		}
 		

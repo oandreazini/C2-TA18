@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 
 public class ConexionDB {
 	
+	private String pass = "SONYvaio5.";
+	private String user = "root";
 	private Connection c;
 	
 	
@@ -26,7 +28,7 @@ public class ConexionDB {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.55:3306","root","pass");
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306",user,pass);
 			
 			System.out.println("Server Connected");
 			
@@ -37,10 +39,10 @@ public class ConexionDB {
 		}
 	}
 
-	public void MySQLConnection(String user, String pass, String db) {
+	public void MySQLConnection(String db) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.55:3306/" + db , user, pass);
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306/" + db , user, pass);
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("No se ha podido conectar con mi base de datos");
@@ -64,11 +66,13 @@ public class ConexionDB {
 	
 	public void createDB(String name) {
 		try {
+			String DeleteDb= "DROP DATABASE IF EXISTS " + name;
 			String Query = "CREATE DATABASE " + name;
 			Statement st = c.createStatement();
+			st.executeUpdate(DeleteDb);
 			st.executeUpdate(Query);
 			closeConnection();
-			MySQLConnection("root", "", name);
+			MySQLConnection(name);
 			System.out.println("Se ha creado la base de datos " + name + " de forma exitosa.");
 		} catch (SQLException e) {
 			Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, e);
@@ -78,8 +82,10 @@ public class ConexionDB {
 	
 	public void createTable(String db, String name, String fields) {
 		try{
+			String DeleteDb= "DROP TABLE IF EXISTS " + name;
 			String Querydb = "USE " + db + ";";
 			Statement stdb = c.createStatement();
+			stdb.executeUpdate(DeleteDb);
 			stdb.executeUpdate(Querydb);
 			
 			String Query = "CREATE TABLE " + name + "(" + fields + ");";
@@ -95,7 +101,7 @@ public class ConexionDB {
 	
 	public void insertData(String db, String table_name, String fields, String values) {
 		try {
-			String Querydb = "USE"+db+";";
+			String Querydb = "USE "+db+";";
 			Statement stdb = c.createStatement();
 			stdb.executeUpdate(Querydb);
 			
