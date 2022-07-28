@@ -10,9 +10,8 @@ public class Articulos {
 		private ConexionDB conexion;
 		
 		public void insert(String db) {
-			
-			
 			Scanner sc = new Scanner(System.in);
+			
 			System.out.println("Introduce un nombre del articulo: ");
 			String name = sc.next();
 			
@@ -24,8 +23,6 @@ public class Articulos {
 			sc.close();
 			
 			conexion.insertData(db, "Articulos", "Nombre, Precio, Fabricante", name +", " + price + ", " + maker);
-			
-			
 		}
 
 }

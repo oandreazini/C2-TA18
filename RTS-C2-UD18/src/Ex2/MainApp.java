@@ -1,22 +1,22 @@
-package Ex1;
+package Ex2;
 
 public class MainApp {
-	
-	
+
 	public static void main(String[] args) {
 		createInserts();
 
 	}
-	
+
 	public static void createInserts () {
-		Fabricantes Fabr = new Fabricantes();
-		Articulos Arti = new Articulos();
-		
+
+		Empleados e = new Empleados();
+		Departamentos d = new Departamentos();
+
 		for(int i=0; i<5; i++) {
-			Fabr.insert("Ex1");
+			d.insert("Ex2");
 		}
 		for(int i=0; i<5; i++) {
-			Arti.insert("Ex1");
+			e.insert("Ex2");
 		}
 	}
 

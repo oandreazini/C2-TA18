@@ -9,9 +9,8 @@ public class Fabricantes {
 	private ConexionDB conexion;
 	
 	public void insert(String db) {
-		
-		
 		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("Introduce un nombre: ");
 		String name = sc.next();
 		sc.close();
