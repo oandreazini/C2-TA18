@@ -22,8 +22,7 @@ public class MainApp {
 	public static void createTables(ConexionDB con) {
 		con.createTable("Ex1", "Fabricantes", "Codigo int auto_increment, Nombre VARCHAR(100), primary key(Codigo)");
 		con.createTable("Ex1", "Articulos", "Codigo int auto_increment, Nombre VARCHAR(100), Precio int, Fabricante int, "
-				+ "CONSTRAINT FK_ArtiFabri FOREIGN KEY (Fabricante) REFERENCES Fabricantes(Codigo) ON DELETE CASCADE ON UPDATE CASCADE, "
-				+ "PRIMARY KEY (Codigo)");
+				+ "CONSTRAINT FK_ArtiFabri FOREIGN KEY (Fabricante) REFERENCES Fabricantes(Codigo) ON DELETE CASCADE ON UPDATE CASCADE");
 	}
 	
 	public static void createInserts (Fabricantes f, Articulos a) {
