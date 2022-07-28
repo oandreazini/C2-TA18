@@ -14,7 +14,7 @@ public class Almacenes {
 		System.out.println("Introduce un lugar: ");
 		String place = sc.next();
 		
-		System.out.println("Introduce un lugar: ");
+		System.out.println("Introduce la capacidad: ");
 		String capacity = sc.next();
 		sc.close();
 		

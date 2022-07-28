@@ -1,7 +1,5 @@
 package Ex3;
 
-import Ex2.Departamentos;
-import Ex2.Empleados;
 
 public class MainApp {
 
