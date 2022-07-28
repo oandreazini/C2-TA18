@@ -12,7 +12,7 @@ public class Despachos {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Introduce un número: ");
+		System.out.println("Introduce un número de despacho: ");
 		String number = sc.next();
 
 		System.out.println("Introduce la capacidad del despacho: ");
