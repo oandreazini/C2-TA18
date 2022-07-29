@@ -42,12 +42,8 @@ public class Almacenes {
 
 	//Metodo para eliminar registros
 	public void delete() {
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Introduce el codigo del almacen: ");
-		String id = sc.next();
-
-		sc.close();
+		
+		String id = JOptionPane.showInputDialog("Introduce el codigo del almacen que quieres eliminar:");
 
 		conexion.deleteRecord("Almacenes", "Codigo", id);
 	}

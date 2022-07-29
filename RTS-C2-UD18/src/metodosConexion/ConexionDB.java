@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class ConexionDB {
 
-	private String pass = ".";
+	private String pass = "Oriol92.";
 	private String user = "root";
 	private Connection c;
 
@@ -28,7 +28,7 @@ public class ConexionDB {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.91:3306",user,pass);
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306",user,pass);
 
 			System.out.println("Server Connected");
 
@@ -42,7 +42,7 @@ public class ConexionDB {
 	public void MySQLConnection(String db) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			c = DriverManager.getConnection("jdbc:mysql://192.168.1.91:3306/" + db , user, pass);
+			c = DriverManager.getConnection("jdbc:mysql://192.168.1.58:3306/" + db , user, pass);
 
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("No se ha podido conectar con mi base de datos");

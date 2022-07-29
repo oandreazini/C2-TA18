@@ -34,14 +34,9 @@ public class Fabricantes {
 		}
 	}
 	
-	//Metodo para eliminar registros
+	//Metodo para eliminar registros de la tabla fabricantes
 	public void delete() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Introduce el codigo del articulo: ");
-		String id = sc.next();
-		
-		sc.close();
+		String id = JOptionPane.showInputDialog("Introduce el codigo del fabricante que quieres eliminar:");
 		
 		conexion.deleteRecord("Fabricantes", "Codigo", id);
 	}

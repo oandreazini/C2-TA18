@@ -1,21 +1,24 @@
 package Ex1;
 
+import javax.swing.JOptionPane;
+
 import metodosConexion.ConexionDB;
 
 public class MainApp {
 	
 	
 	public static void main(String[] args) {
+		
 		ConexionDB conexionDB = new ConexionDB("Ex1");
-		Fabricantes fab = new Fabricantes();
-		Articulos art = new Articulos();
+		Fabricantes f = new Fabricantes();
+		Articulos a = new Articulos();
 		
 		createTables(conexionDB);
-		createInserts(fab, art);
-		printValues(fab, art);
-		deleteData(fab, art);
-		printValues(fab, art);
-		updateData(fab,art);
+		createInserts(f, a);
+		printValues(f, a);
+		deleteData(f, a);
+		printValues(f, a);
+		//updateData(f,a);
 	}
 	
 	//Crear tablas
@@ -28,26 +31,50 @@ public class MainApp {
 	
 	//Introduce 5 registros a las tablas
 	public static void createInserts (Fabricantes f, Articulos a) {
-		//TODO
-		for(int i=0; i<1; i++) {
+		for(int i=0; i<5
+				; i++) {
 			f.insert("Ex1");
 		}
-		for(int i=0; i<1; i++) {
+		for(int i=0; i<5; i++) {
 			a.insert("Ex1");
 		}
 	}
 	
+	//Imprime los valores de toda las tablas de la DB
 	public static void printValues(Fabricantes f, Articulos a) {
 		
 		f.select("Ex1");
 		a.select("Ex1");
 	}
 	
+	//Borra valores de la DB
 	public static void deleteData(Fabricantes f, Articulos a) {
 		
-		a.delete();
-		f.delete();
+		boolean salir = false;
+
+		while (!salir) {
+			
+			String id = JOptionPane.showInputDialog("Introduce el codigo que quieres eliminar: 1->Artiuclo 2->Fabricante 3->No Borrar");
+			int i = Integer.parseInt(id);
+		
+			switch (i){
+			case 1:
+				a.delete();
+				break;
+			case 2:
+				f.delete();
+				break;
+			case 3:
+				salir = true;
+				System.exit(0);
+				break;
+			default:
+				JOptionPane.showMessageDialog(null, "El numero introducido es incorrecto");
+			}
+		}
 	}
+	
+	//Actualiza los valores 
 	public static void updateData(Fabricantes f, Articulos a) {
 
 		a.update();

@@ -16,15 +16,14 @@ public class MainApp {
 		printValues(a, c);
 		deleteData(a, c);
 		printValues(a, c);
-		updateData(a,c);
-		createInserts();
+		//updateData(a,c);
 
 	}
 	
 	public static void createTables(ConexionDB con) {
 		con.createTable("Ex3", "Almacenes", "Codigo int auto_increment, Lugar VARCHAR(100), Capacidad int , primary key(Codigo)");
 		con.createTable("Ex3", "Cajas", "NumReferencia CHAR(5), Contenido VARCHAR(100), Valor int, Almacen int, "
-				+ "CONSTRAINT FK_CajAlma FOREIGN KEY (Almacenes) REFERENCES Almacenes(Codigo) ON DELETE CASCADE ON UPDATE CASCADE, "
+				+ "CONSTRAINT FK_CajAlma FOREIGN KEY (Almacen) REFERENCES Almacenes(Codigo) ON DELETE CASCADE ON UPDATE CASCADE, "
 				+ "PRIMARY KEY (DNI)");
 	}
 	

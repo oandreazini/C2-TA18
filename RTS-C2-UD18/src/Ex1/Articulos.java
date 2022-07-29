@@ -14,6 +14,7 @@ public class Articulos {
 		
 		//Metodo para insertar registros a la tabla
 		public void insert(String db) {
+			
 			String name = JOptionPane.showInputDialog("Introduce un NOMBRE del articulo:");
 			name = "'"+name+"'";
 			
@@ -33,26 +34,24 @@ public class Articulos {
 			
 			try {
 				while(resultSet.next()) {
-					System.out.println("Codigo: " + resultSet.getString("Codigo"));
-					System.out.println("Nombre: " + resultSet.getString("Nombre"));
-					System.out.println("Precio: " + resultSet.getString("Precio"));
-					System.out.println("Fabricante: " + resultSet.getString("Fabricante"));
+				System.out.println("Codigo: " + resultSet.getString("Codigo"));
+				System.out.println("Nombre: " + resultSet.getString("Nombre"));
+				System.out.println("Precio: " + resultSet.getString("Precio"));
+				System.out.println("Fabricante: " + resultSet.getString("Fabricante"));
 				}
 			} catch (SQLException e) {
 				System.out.println(e);
 			}
 		}
 		
-		//Metodo para eliminar registros
+		//Metodo para eliminar registros de la tabla articulos
 		public void delete() {
-			Scanner sc = new Scanner(System.in);
 			
-			System.out.println("Introduce el codigo del articulo: ");
-			String id = sc.next();
-			
-			sc.close();
-			
+			String id = JOptionPane.showInputDialog("Introduce el codigo del articulo que quieres eliminar:");
+		
 			conexion.deleteRecord("Articulos", "Codigo", id);
+			
+			
 		}
 		
 		//Metodo para actualizar los valores de los registros

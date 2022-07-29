@@ -47,12 +47,7 @@ public class Cajas {
 	}
 
 	public void delete() {
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Introduce el NUMERO de referencia de la caja: ");
-		String id = sc.next();
-
-		sc.close();
+		String id = JOptionPane.showInputDialog("Introduce el codigo de la caja que quieres eliminar:");
 
 		conexion.deleteRecord("Cajas", "NumReferencia", id);
 	}
@@ -71,15 +66,5 @@ public class Cajas {
 
 		conexion.updateData("Cajas", campo2, campo, id, "NumReferencia");
 	}
-
-
-
-		
-		
-
-		
-
-		
-	
 
 }
