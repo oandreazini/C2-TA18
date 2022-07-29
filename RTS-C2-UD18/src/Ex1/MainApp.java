@@ -54,7 +54,7 @@ public class MainApp {
 
 		while (!salir) {
 			
-			String id = JOptionPane.showInputDialog("Introduce el codigo que quieres eliminar: 1->Artiuclo 2->Fabricante 3->No Borrar");
+			String id = JOptionPane.showInputDialog("Introduce el codigo que quieres eliminar: 1->Articulo 2->Fabricante 3->No Borrar");
 			int i = Integer.parseInt(id);
 		
 			switch (i){
