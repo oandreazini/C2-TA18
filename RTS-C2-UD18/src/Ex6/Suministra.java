@@ -48,4 +48,19 @@ public class Suministra {
 
 		conexion.deleteRecord("Suministra", "IdProveedor", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO del proveedor que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO del proveedor que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR del proveedor que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Suministra", campo2, campo, id, "IdProveedor");
+	}
 }

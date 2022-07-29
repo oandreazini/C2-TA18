@@ -15,6 +15,7 @@ public class MainApp {
 		printValues(p, s);
 		deleteData(p, s);
 		printValues(p, s);
+		updateData(p,s);
 	}
 	
 	public static void createTables(ConexionDB con) {
@@ -44,6 +45,12 @@ public class MainApp {
 
 		s.delete();
 		p.delete();
+	}
+	
+	public static void updateData(Peliculas p, Salas s) {
+
+		p.update();
+		s.update();
 	}
 
 }

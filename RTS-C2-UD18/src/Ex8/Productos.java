@@ -46,4 +46,19 @@ public class Productos {
 
 		conexion.deleteRecord("Productos", "Codigo", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO del producto que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO del producto que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR del producto que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Productos", campo2, campo, id, "Codigo");
+	}
 }

@@ -44,4 +44,19 @@ public class Salas {
 
 		conexion.deleteRecord("Salas", "Codigo", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO de la sala que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO de la sala que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR de la sala que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Salas", campo2, campo, id, "Codigo");
+	}
 }

@@ -43,4 +43,19 @@ public class Piezas {
 
 		conexion.deleteRecord("Piezas", "Codigo", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO del piezas que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO del piezas que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR del piezas que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Piezas", campo2, campo, id, "Codigo");
+	}
 }

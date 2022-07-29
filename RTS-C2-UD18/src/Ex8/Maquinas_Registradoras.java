@@ -42,4 +42,19 @@ public class Maquinas_Registradoras {
 
 		conexion.deleteRecord("Maquinas_Registradoras", "Codigo", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO de la máquina registradora que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO de la máquina registradora que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR de la máquina registradora que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Maquinas_Registradoras", campo2, campo, id, "Codigo");
+	}
 }

@@ -1,5 +1,7 @@
 package Ex8;
 
+import Ex2.Departamentos;
+import Ex2.Empleados;
 import metodosConexion.ConexionDB;
 
 public class MainApp {
@@ -16,6 +18,7 @@ public class MainApp {
 		printValues(c, mr, p, v);
 		deleteData(c, mr, p, v);
 		printValues(c, mr, p, v);
+		updateData(c, mr, p, v);
 	}
 
 	public static void createTables(ConexionDB con) {
@@ -57,5 +60,13 @@ public class MainApp {
 		p.delete();
 		mr.delete();
 		c.delete();
+	}
+	
+	public static void updateData(Cajeros c, Maquinas_Registradoras mr, Productos p, Venta v) {
+
+		c.update();
+		mr.update();
+		p.update();
+		v.update();
 	}
 }
