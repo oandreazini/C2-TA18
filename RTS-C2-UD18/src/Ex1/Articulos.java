@@ -13,17 +13,12 @@ public class Articulos {
 		private ConexionDB conexion = new ConexionDB();
 		
 		public void insert(String db) {
-			Scanner sc = new Scanner(System.in);
-			
-			//System.out.println("Introduce un nombre del articulo: ");
 			String name = JOptionPane.showInputDialog("Introduce un NOMBRE del articulo:");
 			name = "'"+name+"'";
-			//System.out.println("Introduce un precio del articulo: ");
+			
 			String price = JOptionPane.showInputDialog("Introduce un PRECIO del articulo:");
 			
-			//System.out.println("Introduce un fabricante del articulo: ");
 			String maker = JOptionPane.showInputDialog("Introduce un FABRICANTE del articulo:");
-			//sc.close();
 			
 			
 			conexion.MySQLConnection(db);
