@@ -11,14 +11,14 @@ public class MainApp {
 		Articulos art = new Articulos();
 		
 		createTables(conexionDB);
-		
 		createInserts(fab, art);
 		printValues(fab, art);
-		
 		deleteData(fab, art);
 		printValues(fab, art);
+		updateData(fab,art);
 	}
 	
+	//Crear tablas
 	public static void createTables(ConexionDB con) {
 		con.createTable("Ex1", "Fabricantes", "Codigo int auto_increment, Nombre VARCHAR(100), primary key(Codigo)");
 		con.createTable("Ex1", "Articulos", "Codigo int auto_increment, Nombre VARCHAR(100), Precio int, Fabricante int, "
@@ -26,8 +26,9 @@ public class MainApp {
 				+ "PRIMARY KEY (Codigo)");
 	}
 	
+	//Introduce 5 registros a las tablas
 	public static void createInserts (Fabricantes f, Articulos a) {
-		
+		//TODO
 		for(int i=0; i<1; i++) {
 			f.insert("Ex1");
 		}
@@ -46,5 +47,10 @@ public class MainApp {
 		
 		a.delete();
 		f.delete();
+	}
+	public static void updateData(Fabricantes f, Articulos a) {
+
+		a.update();
+		f.update();
 	}
 }

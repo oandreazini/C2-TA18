@@ -9,9 +9,10 @@ import metodosConexion.ConexionDB;
 
 public class Articulos {
 	
-		
+		//Creamos la conexion a la DB
 		private ConexionDB conexion = new ConexionDB();
 		
+		//Metodo para insertar registros a la tabla
 		public void insert(String db) {
 			String name = JOptionPane.showInputDialog("Introduce un NOMBRE del articulo:");
 			name = "'"+name+"'";
@@ -25,6 +26,7 @@ public class Articulos {
 			conexion.insertData(db, "Articulos", "Nombre, Precio, Fabricante", name +", " + price + ", " + maker);
 		}
 		
+		//Metodo para imprimir los registros
 		public void select(String db) {
 			
 			java.sql.ResultSet resultSet  = conexion.getValues(db, "Articulos");
@@ -41,6 +43,7 @@ public class Articulos {
 			}
 		}
 		
+		//Metodo para eliminar registros
 		public void delete() {
 			Scanner sc = new Scanner(System.in);
 			
@@ -50,6 +53,22 @@ public class Articulos {
 			sc.close();
 			
 			conexion.deleteRecord("Articulos", "Codigo", id);
+		}
+		
+		//Metodo para actualizar los valores de los registros
+		public void update() {
+			Scanner sc = new Scanner(System.in);
+
+			System.out.println("Introduce el CODIGO del articulo que quieres modificar: ");
+			String id = sc.next();
+			System.out.println("Introduce el CAMPO del articulo que quieres modificar: ");
+			String campo = sc.next();
+			System.out.println("Introduce el NUEVO VALOR del articulo que quieres modificar: ");
+			String campo2 = sc.next();
+
+			sc.close();
+
+			conexion.updateData("Articulos", campo, campo2, id, "Codigo");
 		}
 
 }

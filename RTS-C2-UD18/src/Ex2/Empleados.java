@@ -64,6 +64,6 @@ public class Empleados {
 
 		sc.close();
 
-		conexion.updateData("Departamentos", campo2, campo, id, "DNI");
+		conexion.updateData("Empleados", campo2, campo, id, "DNI");
 	}
 }

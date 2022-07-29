@@ -1,23 +1,71 @@
 package Ex3;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import metodosConexion.ConexionDB;
 
 public class Almacenes {
 	
-	private ConexionDB conexion;
+	//Creamos la conexion a la DB
+	private ConexionDB conexion = new ConexionDB();
 	
+	//Metodo para insertar registros a la tabla
 	public void insert(String db) {
-		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Introduce un lugar: ");
-		String place = sc.next();
+		String place = JOptionPane.showInputDialog("Introduce el LUGAR del almacen");
+		place = "'" + place + "'";
 		
-		System.out.println("Introduce la capacidad: ");
-		String capacity = sc.next();
-		sc.close();
+		String capacity = JOptionPane.showInputDialog("Introduce una CAPACIDAD del almacen:");
 		
+		conexion.MySQLConnection(db);
 		conexion.insertData(db, "Almacenes", "Lugar, Capacidad", place +", " + capacity);
 	}
+	
+	//Metodo para imprimir los registros
+	public void select(String db) {
+
+		java.sql.ResultSet resultSet  = conexion.getValues(db, "Almacenes");
+
+		try {
+			while(resultSet.next()) {
+				System.out.println("Codigo: " + resultSet.getString("Codigo"));
+				System.out.println("Lugar: " + resultSet.getString("Lugar"));
+				System.out.println("Capacidad: " + resultSet.getString("Capacidad"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+	}
+
+	//Metodo para eliminar registros
+	public void delete() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el codigo del almacen: ");
+		String id = sc.next();
+
+		sc.close();
+
+		conexion.deleteRecord("Almacenes", "Codigo", id);
+	}
+	
+	//Metodo para actualizar los valores de los registros
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO del almacen que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO del alamcen que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR del alamcen que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Almacenes", campo2, campo, id, "Codigo");
+	}
+
 }
