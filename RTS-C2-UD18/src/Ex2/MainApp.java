@@ -15,6 +15,7 @@ public class MainApp {
 		printValues(e, d);
 		deleteData(e, d);
 		printValues(e, d);
+		updateData(e,d);
 
 	}
 
@@ -45,6 +46,12 @@ public class MainApp {
 
 		e.delete();
 		d.delete();
+	}
+	
+	public static void updateData(Empleados e, Departamentos d) {
+
+		e.update();
+		d.update();
 	}
 
 }

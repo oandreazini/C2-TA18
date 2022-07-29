@@ -44,4 +44,19 @@ public class Departamentos {
 
 		conexion.deleteRecord("Departamentos", "Codigo", id);
 	}
+	
+	public void update() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el CÓDIGO del departamento que quieres modificar: ");
+		String id = sc.next();
+		System.out.println("Introduce el CAMPO del departamento que quieres modificar: ");
+		String campo = sc.next();
+		System.out.println("Introduce el NUEVO VALOR del departamento que quieres modificar: ");
+		String campo2 = sc.next();
+
+		sc.close();
+
+		conexion.updateData("Departamentos", campo2, campo, id, "Codigo");
+	}
 }
