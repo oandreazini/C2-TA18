@@ -54,11 +54,12 @@ public class Almacenes {
 
 		System.out.println("Introduce el CÓDIGO del almacen que quieres modificar: ");
 		String id = sc.next();
-		System.out.println("Introduce el CAMPO del alamcen que quieres modificar: ");
+		
+		System.out.println("Introduce el CAMPO del almacen que quieres modificar: ");
 		String campo = sc.next();
-		System.out.println("Introduce el NUEVO VALOR del alamcen que quieres modificar: ");
+		
+		System.out.println("Introduce el NUEVO VALOR del almacen que quieres modificar: ");
 		String campo2 = sc.next();
-
 		sc.close();
 
 		conexion.updateData("Almacenes", campo2, campo, id, "Codigo");
