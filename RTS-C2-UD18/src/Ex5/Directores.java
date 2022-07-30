@@ -18,22 +18,22 @@ public class Directores {
 		String dni = JOptionPane.showInputDialog("Introduce un DNI del director (Máximo 8 carácteres):");
 		dni = "'" + dni + "'";
 		
-		String name = JOptionPane.showInputDialog("Introduce un NOMBRE del director:");
+		String name = JOptionPane.showInputDialog("Introduce un NOMBRE y apellido del director:");
 		name = "'" + name + "'";
 		
-		String dniBoss = JOptionPane.showInputDialog("Introduce un DNI del director JEFE (Máximo 8 carácteres):");
-		dni = "'" + dni + "'";
+		String dniJefe = JOptionPane.showInputDialog("Introduce un DNI del director JEFE (Máximo 8 carácteres):");
+		dniJefe = "'" + dniJefe + "'";
 		
 		String office = JOptionPane.showInputDialog("Introduce un NÚMERO de despacho:");
 
 		conexion.MySQLConnection(db);
-		conexion.insertData(db, "Directores", "DNI, Nombre y Apellidos, DNI Jefe, Despacho", dni + ", " + name + ", " + dniBoss + ", " + office);
+		conexion.insertData(db, "Directores", "DNI, NomApels, DNIJefe, Despacho", dni + ", " + name + ", " + dniJefe + ", " + office);
 	}
 	
 	//Metodo para imprimir los registros
 	public void select(String db) {
 
-		java.sql.ResultSet resultSet  = conexion.getValues(db, "Empleados");
+		java.sql.ResultSet resultSet  = conexion.getValues(db, "Directores");
 
 		try {
 			while(resultSet.next()) {
@@ -50,7 +50,7 @@ public class Directores {
 	//Metodo para eliminar registros
 	public void delete() {
 			
-		String id = JOptionPane.showInputDialog("Introduce el codigo del director que quieres eliminar:");
+		String id = JOptionPane.showInputDialog("Introduce el DNI del director que quieres eliminar:");
 
 		conexion.deleteRecord("Directores", "DNI", id);
 		}
@@ -59,7 +59,7 @@ public class Directores {
 	public void update() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Introduce el CÓDIGO del director que quieres modificar: ");
+		System.out.println("Introduce el DNI del director que quieres modificar: ");
 		String id = sc.next();
 		
 		System.out.println("Introduce el CAMPO del director que quieres modificar: ");

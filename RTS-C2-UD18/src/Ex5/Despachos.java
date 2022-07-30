@@ -16,12 +16,11 @@ public class Despachos {
 	public void insert(String db) {
 
 		String number = JOptionPane.showInputDialog("Introduce un NUMERO de despacho:");
-		number = "'" + number + "'";
 		
 		String capacity = JOptionPane.showInputDialog("Introduce la CAPACIDAD del despacho:");
 		
 		conexion.MySQLConnection(db);
-		conexion.insertData(db, "Despachos", "Número, Capacidad", number +", " + capacity);
+		conexion.insertData(db, "Despachos", "Numero, Capacidad", number +", " + capacity);
 	}
 	
 	//Metodo para imprimir los registros

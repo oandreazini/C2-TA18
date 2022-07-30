@@ -1,7 +1,5 @@
 package Ex8;
 
-import Ex2.Departamentos;
-import Ex2.Empleados;
 import metodosConexion.ConexionDB;
 
 public class MainApp {

@@ -24,10 +24,10 @@ public class MainApp {
 
 	//Crear tablas
 	public static void createTables(ConexionDB con) {
-		con.createTable("Ex3", "Despachos", "Numero int, Capacidad int , primary key(Numero)");
-		con.createTable("Ex3", "Directores", "DNI VARCHAR(8), NomApels VARCHAR(255), DNIJefe VARCHAR(8), Despacho int, "
+		con.createTable("Ex5", "Despachos", "Numero int, Capacidad int , primary key(Numero)");
+		con.createTable("Ex5", "Directores", "DNI VARCHAR(8), NomApels VARCHAR(255), DNIJefe VARCHAR(8), Despacho int, "
 					+ "CONSTRAINT FK_Despa FOREIGN KEY (Despacho) REFERENCES Despachos(Numero) ON DELETE CASCADE ON UPDATE CASCADE, "
-					+ "CONSTRAINT FK_DNIBoss FOREIGN KEY (Dire) REFERENCES Directores(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
+					+ "CONSTRAINT FK_DNIBoss FOREIGN KEY (DNIJefe) REFERENCES Directores(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
 					+ "PRIMARY KEY (DNI)");
 		}
 	
@@ -82,9 +82,6 @@ public class MainApp {
 		des.update();
 		dir.update();
 	}
-
-	
-	
 }
 
 
